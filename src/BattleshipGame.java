@@ -22,7 +22,13 @@ public class BattleshipGame {
 
     public void makeMove(int row, int col)
     {
-        board.setBoardHit(row, col);
+        for (Ship ship : fleet.getShips())
+        {
+            if (ship.occupies(row, col)) {
+                board.setBoardHit(row, col);
+            }
+        }
+        board.setBoardMiss(row, col);
     }
 
     public void initializeGame()
