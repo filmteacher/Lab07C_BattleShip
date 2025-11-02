@@ -167,13 +167,28 @@ public class BattleshipFrame extends JFrame implements ActionListener
         quitBtn = new JButton("QUIT");
         quitBtn.addActionListener((ActionEvent ae) ->
         {
-            System.exit(0);
+            int response = JOptionPane.showConfirmDialog(this,
+                    "Quit the game?",
+                    "Quit Game",
+                    JOptionPane.OK_CANCEL_OPTION);
+
+            if (response == JOptionPane.OK_OPTION)
+            {
+                System.exit(0);
+            }
         });
 
         replayBtn = new JButton("RESTART");
         replayBtn.addActionListener((ActionEvent ae) ->
         {
-            game.initializeGame();
+            int response = JOptionPane.showConfirmDialog(this,
+                    "Restart the game?",
+                    "Restart Game",
+                    JOptionPane.OK_CANCEL_OPTION);
+
+            if (response == JOptionPane.OK_OPTION) {
+                game.initializeGame();
+            }
         });
 
         buttonsPnl.add(quitBtn);

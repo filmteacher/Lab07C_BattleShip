@@ -11,13 +11,10 @@ public class BattleshipTile extends JButton
     private int col;
     private String state;
 
-    // I used AI to generate the icons for the game tiles so that I could have original, unique images.
-    // --- Images: empty.png, hit.png, and miss.png ---
-    // Source: AI generated via Google Gemini Pro
-    // Date Generated: 1 November 2025
-    // License: Royalty-free for commercial and personal use.
-    // ---------------------------------
-
+    // AI Disclosure - 
+    // I used Gemini to generate the three icons for the game tiles,
+    // so that I could have original, unique images instead of
+    // something downloaded off the Internet.
     private ImageIcon empty = new ImageIcon("src/empty.png");
     private ImageIcon hit = new ImageIcon("src/hit.png");
     private ImageIcon miss = new ImageIcon("src/miss.png");
