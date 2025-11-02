@@ -18,7 +18,12 @@ public class Fleet {
     }
 
     public boolean fleetSunk() {
-        return ships.isEmpty();
+        for (Ship ship : this.ships) {
+            if (!ship.isSunk()) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public List<Ship> getShips() {

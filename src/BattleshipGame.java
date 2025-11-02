@@ -27,13 +27,22 @@ public class BattleshipGame {
                 board.setBoardHit(row, col);
                 ship.recordHit();
                 totalHits++;
+                frame.setTotalHitsFld(String.valueOf(totalHits));
                 frame.hitMessage();
 
                 if (ship.isSunk()) {
                     String sunkShip = ship.getName();
                     frame.sunkMessage(sunkShip);
+
+                    if (fleet.fleetSunk()) {
+                        JOptionPane.showMessageDialog(frame,
+                                "Congratulations! You sank the fleet!",
+                                "Victory!",
+                                JOptionPane.INFORMATION_MESSAGE);
+                        playAgain();
+                    }
                 }
-                frame.setTotalHitsFld(String.valueOf(totalHits));
+
                 return;
             }
         }
@@ -53,7 +62,7 @@ public class BattleshipGame {
             frame.setStrikesFld(String.valueOf(strikes));
             frame.setMissesFld(String.valueOf(misses));
 
-            if (strikes == 3) {
+            if (strikes == 7) {
                 JOptionPane.showMessageDialog(frame,
                         "Three strikes. You lose!",
                         "Game Over",
