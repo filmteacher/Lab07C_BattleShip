@@ -11,6 +11,5 @@ public class GameRunner
 {
     public static void main(String[] args) {
         JFrame battleshipFrame = new BattleshipFrame();
-        battleshipFrame.setVisible(true);
     }
 }

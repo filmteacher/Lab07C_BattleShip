@@ -6,6 +6,11 @@ public class BattleshipGame {
     public BattleshipFrame frame;
     public BattleshipBoard board;
 
+    public int stikes = 0;
+    public int misses = 0;
+    public int totalHits = 0;
+    public int totalMisses = 0;
+
     public BattleshipGame(BattleshipBoard board, BattleshipFrame frame)
     {
         this.board = board;
@@ -182,7 +187,7 @@ public class BattleshipGame {
         return true;
     }
 
-    private void initializeGame()
+    public void initializeGame()
     {
         board.clearBoard();
         frame.askMessage();
