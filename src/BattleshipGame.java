@@ -26,9 +26,19 @@ public class BattleshipGame {
         {
             if (ship.occupies(row, col)) {
                 board.setBoardHit(row, col);
+                ship.recordHit();
+                frame.hitMessage();
+
+                if (ship.isSunk()) {
+                    String sunkShip = ship.getName();
+                    frame.sunkMessage(sunkShip);
+                }
+                return;
+            } else {
+                board.setBoardMiss(row, col);
+                frame.missMessage();
             }
         }
-        board.setBoardMiss(row, col);
     }
 
     public void initializeGame()

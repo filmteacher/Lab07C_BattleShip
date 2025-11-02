@@ -100,7 +100,7 @@ public class BattleshipFrame extends JFrame implements ActionListener
         msgPnl.setOpaque(true);
         msgPnl.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 
-        msgFld = new JTextField(14);
+        msgFld = new JTextField(25);
         msgFld.setFont(new Font("Verdana", Font.BOLD, 14));
         msgFld.setForeground(Color.BLACK);
         msgFld.setHorizontalAlignment(SwingConstants.CENTER);
@@ -202,6 +202,10 @@ public class BattleshipFrame extends JFrame implements ActionListener
 
     public void askMessage() {
         msgFld.setText("Choose a cell.");
+    }
+
+    public void sunkMessage(String ship) {
+        msgFld.setText("You sunk the opponent's " + ship + "!");
     }
 
     public void hitMessage() {
