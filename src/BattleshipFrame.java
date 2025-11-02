@@ -172,7 +172,7 @@ public class BattleshipFrame extends JFrame implements ActionListener
             System.exit(0);
         });
 
-        replayBtn = new JButton("REPLAY");
+        replayBtn = new JButton("RESTART");
         replayBtn.addActionListener((ActionEvent ae) ->
         {
             game.initializeGame();
@@ -191,21 +191,27 @@ public class BattleshipFrame extends JFrame implements ActionListener
         if (!(e.getSource() instanceof BattleshipTile))
         {
             return;
+        } else {
+            BattleshipTile clickedTile = (BattleshipTile) e.getSource();
+            int row = clickedTile.getRow();
+            int col = clickedTile.getCol();
+            String state = clickedTile.getState();
+
+            if (state.equals("hit") || state.equals("miss"))
+            {
+                usedMessage();
+            } else {
+                game.makeMove(row, col);
+            }
         }
-
-        BattleshipTile clickedTile = (BattleshipTile) e.getSource();
-        int row = clickedTile.getRow();
-        int col = clickedTile.getCol();
-
-        game.makeMove(row, col);
     }
 
     public void askMessage() {
         msgFld.setText("Choose a cell.");
     }
 
-    public void sunkMessage(String ship) {
-        msgFld.setText("You sunk the opponent's " + ship + "!");
+    public void usedMessage() {
+        msgFld.setText("You already clicked that cell. Choose again.");
     }
 
     public void hitMessage() {
@@ -214,5 +220,29 @@ public class BattleshipFrame extends JFrame implements ActionListener
 
     public void missMessage() {
         msgFld.setText("It's a miss. Choose again.");
+    }
+
+    public void sunkMessage(String ship) {
+        msgFld.setText("You sank the opponent's " + ship + "!");
+    }
+
+    public void strikeMessage() {
+        msgFld.setText("Five misses. That's a strike!");
+    }
+
+    public void setStrikesFld(String value) {
+        strikesFld.setText(value);
+    }
+
+    public void setMissesFld(String value) {
+        missesFld.setText(value);
+    }
+
+    public void setTotalHitsFld(String value) {
+        totalHitsFld.setText(value);
+    }
+
+    public void setTotalMissesFld(String value) {
+        totalMissesFld.setText(value);
     }
 }
