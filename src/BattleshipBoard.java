@@ -6,7 +6,7 @@ public class BattleshipBoard {
     public static final int ROW = 10;
     public static final int COL = 10;
 
-    private String[][] board = new String[ROW][COL];
+    public String[][] board = new String[ROW][COL];
 
     private BattleshipTile[][] tiles = new BattleshipTile[ROW][COL];
 
@@ -37,21 +37,27 @@ public class BattleshipBoard {
         return board[row][col];
     }
 
+    public void setBoardValue(int row, int col, String value) {
+        this.board[row][col] = value;
+    }
+
     public void setBoardHit(int row, int col) {
-        //board[row][col] = player;
         tiles[row][col].setHit();
     }
 
     public void setBoardMiss(int row, int col) {
-        //board[row][col] = player;
         tiles[row][col].setMiss();
+    }
+
+    public void setBoardEmpty(int row, int col) {
+        tiles[row][col].setEmpty();
     }
 
     public void clearBoard() {
         for (int row = 0; row < ROW; row++) {
             for (int col = 0; col < COL; col++) {
-                board[row][col] = " ";
-                tiles[row][col].setText("");
+                board[row][col] = "~";
+                tiles[row][col].setEmpty();
             }
         }
     }

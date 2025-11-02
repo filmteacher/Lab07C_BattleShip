@@ -30,8 +30,6 @@ public class BattleshipFrame extends JFrame implements ActionListener
     JButton replayBtn;
     JButton quitBtn;
 
-    int marginSize = 25;
-
     public BattleshipGame game;
     public BattleshipBoard board;
 
@@ -133,6 +131,7 @@ public class BattleshipFrame extends JFrame implements ActionListener
         strikesFld = new JTextField(3);
         strikesFld.setEditable(false);
         statusPnl.add(strikesFld);
+        strikesFld.setText("0");
 
         missesLbl = new JLabel("Misses:");
         statusPnl.add(missesLbl);
@@ -140,6 +139,7 @@ public class BattleshipFrame extends JFrame implements ActionListener
         missesFld = new JTextField(3);
         missesFld.setEditable(false);
         statusPnl.add(missesFld);
+        missesFld.setText("0");
 
         totalHitsLbl = new JLabel("Total Hits:");
         statusPnl.add(totalHitsLbl);
@@ -147,6 +147,7 @@ public class BattleshipFrame extends JFrame implements ActionListener
         totalHitsFld = new JTextField(3);
         totalHitsFld.setEditable(false);
         statusPnl.add(totalHitsFld);
+        totalHitsFld.setText("0");
 
         totalMissesLbl = new JLabel("Total Misses:");
         statusPnl.add(totalMissesLbl);
@@ -154,6 +155,7 @@ public class BattleshipFrame extends JFrame implements ActionListener
         totalMissesFld = new JTextField(3);
         totalMissesFld.setEditable(false);
         statusPnl.add(totalMissesFld);
+        totalMissesFld.setText("0");
 
 
         buttonsPnl = new JPanel();
@@ -195,13 +197,6 @@ public class BattleshipFrame extends JFrame implements ActionListener
         int row = clickedTile.getRow();
         int col = clickedTile.getCol();
 
-        if (!game.isValidMove(row, col))
-        {
-            JOptionPane.showMessageDialog(this, "Invalid move! Cell has already been selected.",
-                    "Invalid Move", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-
         game.makeMove(row, col);
     }
 
@@ -210,10 +205,10 @@ public class BattleshipFrame extends JFrame implements ActionListener
     }
 
     public void hitMessage() {
-        msgFld.setText("It's a hit!");
+        msgFld.setText("It's a hit! Choose again.");
     }
 
     public void missMessage() {
-        msgFld.setText("It's a miss.");
+        msgFld.setText("It's a miss. Choose again.");
     }
 }

@@ -38,4 +38,8 @@ public class BattleshipTile extends JButton
     public void setHit() {
         this.setIcon(hit);
     }
+
+    public void setEmpty() {
+        this.setIcon(empty);
+    }
 }
