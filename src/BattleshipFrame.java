@@ -45,19 +45,17 @@ public class BattleshipFrame extends JFrame implements ActionListener
         this.setLocation(x, y);
 
         createMainPnl();
-
         createTitlePnl();
-        mainPnl.add(titlePnl);
-
         createMsgPnl();
+        createBottomPnl();
+
+        mainPnl.add(titlePnl);
         mainPnl.add(msgPnl);
 
         board = new BattleshipBoard(this);
         game = new BattleshipGame(board, this);
 
         mainPnl.add(board.getBoardPanel());
-
-        createBottomPnl();
         mainPnl.add(bottomPnl);
 
         add(mainPnl);

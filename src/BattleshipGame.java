@@ -66,17 +66,22 @@ public class BattleshipGame {
 
     public void initializeGame()
     {
-        strikes = 0;
-        misses = 0;
-        totalHits = 0;
-        totalMisses = 0;
-
         board.clearBoard();
 
         fleet = new Fleet();
         fleet.placeFleet(board);
 
         frame.askMessage();
+
+        strikes = 0;
+        misses = 0;
+        totalHits = 0;
+        totalMisses = 0;
+
+        frame.setStrikesFld(String.valueOf(strikes));
+        frame.setMissesFld(String.valueOf(misses));
+        frame.setTotalHitsFld(String.valueOf(totalHits));
+        frame.setTotalMissesFld(String.valueOf(totalMisses));
     }
 
     private void playAgain()
