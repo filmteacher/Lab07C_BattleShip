@@ -58,7 +58,6 @@ public class BattleshipGame {
                         "Three strikes. You lose!",
                         "Game Over",
                         JOptionPane.INFORMATION_MESSAGE);
-                board.clearBoard();
                 playAgain();
             }
         }
