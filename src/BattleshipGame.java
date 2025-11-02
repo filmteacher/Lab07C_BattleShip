@@ -62,7 +62,7 @@ public class BattleshipGame {
             frame.setStrikesFld(String.valueOf(strikes));
             frame.setMissesFld(String.valueOf(misses));
 
-            if (strikes == 7) {
+            if (strikes == 3) {
                 JOptionPane.showMessageDialog(frame,
                         "Three strikes. You lose!",
                         "Game Over",
